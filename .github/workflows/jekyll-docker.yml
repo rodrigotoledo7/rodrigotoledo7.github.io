@@ -17,4 +17,4 @@ jobs:
       run: |
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll \
-        jekyll/builder:4.2.2 /bin/bash -c "bundle install && jekyll build --future"
+        jekyll/builder:4.2.2 /bin/bash -c "gem update --system && gem install bundler && bundle install && jekyll build --future"
