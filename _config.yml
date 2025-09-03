@@ -27,6 +27,10 @@ url: "https://rodrigotoledo7.github.io" # the base hostname & protocol for your 
 twitter_username: rodrigotoledo7
 github_username:  rodrigotoledo7
 
+collections:
+  classes:
+    output: true
+
 # Configurações adicionais
 css_folder:  'assets/stylesheets'
 js_folder:  'assets/javascripts'
@@ -36,6 +40,10 @@ img_folder: 'assets/images'
 theme: minima
 plugins:
   - jekyll-feed
+
+header_pages:
+  - about.markdown
+  - index.markdown
 
 # Exclude from processing.
 # The following items will not be processed, by default.
