@@ -8,13 +8,18 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll \
-        jekyll/builder:4.2.2 /bin/bash -c "gem update --system && gem install bundler && bundle install && jekyll build --future"
+      - uses: actions/checkout@v4
+
+      # Configura o ambiente Ruby usando a action oficial
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # Usa uma versão do Ruby compatível com as gems do projeto
+          ruby-version: '3.1'
+          # Instala e armazena em cache as dependências do Bundler
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --future
