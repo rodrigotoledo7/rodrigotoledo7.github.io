@@ -21,5 +21,13 @@ jobs:
           # Instala e armazena em cache as dependências do Bundler
           bundler-cache: true
 
+      # Adicionar um passo para atualizar RubyGems
+      - name: Update RubyGems
+        run: gem update --system
+
+      # Adicionar um passo para instalar Bundler explicitamente
+      - name: Install Bundler
+        run: gem install bundler
+
       - name: Build Jekyll site
         run: bundle exec jekyll build --future
